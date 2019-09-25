@@ -3,7 +3,7 @@ package hexagonal.demo.account.domain;
 import java.time.LocalDateTime;
 
 public class Activity {
-    public Activity(AccountId id, AccountId id1, AccountId targetAccountId, LocalDateTime now, Money money) {
+    public Activity(Account.AccountId id, Account.AccountId id1, Account.AccountId targetAccountId, LocalDateTime now, Money money) {
 
     }
 }

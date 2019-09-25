@@ -52,4 +52,8 @@ public class Account {
 
         return true;
     }
+
+    public class AccountId {
+
+    }
 }
