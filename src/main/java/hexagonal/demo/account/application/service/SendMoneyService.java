@@ -1,4 +1,4 @@
-package hexagonal.demo.account.application;
+package hexagonal.demo.account.application.service;
 
 import hexagonal.demo.account.application.port.in.SendMoneyCommand;
 import hexagonal.demo.account.application.port.in.SendMoneyUseCase;
@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
-@Transactional()
+@Transactional
 class SendMoneyService implements SendMoneyUseCase {
 
     private final LoadAccountPort loadAccountPort;

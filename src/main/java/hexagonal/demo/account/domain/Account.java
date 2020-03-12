@@ -1,7 +1,12 @@
 package hexagonal.demo.account.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 
+@AllArgsConstructor
+@NoArgsConstructor
 public class Account {
 
     private AccountId id;
@@ -10,7 +15,15 @@ public class Account {
 
     private ActivityWindow activityWindow;
 
-    Money calculateBalance() {
+    public static Account withoutId(Money baselineBalance, ActivityWindow activityWindow) {
+        return new Account(null, baselineBalance, activityWindow);
+    }
+
+    public static Account withId(AccountId accountId, Money baselineBalance, ActivityWindow activityWindow) {
+        return new Account(accountId, baselineBalance, activityWindow);
+    }
+
+    public Money calculateBalance() {
         return Money.add(baselineBalance, activityWindow.calculateBalance(id));
     }
 
@@ -53,7 +66,11 @@ public class Account {
         return true;
     }
 
-    public class AccountId {
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class AccountId {
+
+        private Long id;
 
     }
 }
